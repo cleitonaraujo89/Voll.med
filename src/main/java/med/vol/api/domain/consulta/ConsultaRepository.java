@@ -10,7 +10,6 @@ import java.util.List;
 public interface ConsultaRepository extends JpaRepository <Consulta, Long>{
     boolean  existsByMedicoIdAndData(Long idMedico, LocalDateTime data);
 
-    Boolean existsByPacienteIdAndDataBetween(Long idPaciente, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
 
     @Query("""
             select c.ativo from Consulta c
@@ -20,5 +19,6 @@ public interface ConsultaRepository extends JpaRepository <Consulta, Long>{
 
     Boolean existsByMedicoIdAndDataAndAtivoTrue(Long aLong, LocalDateTime data);
 
-    Consulta findByPacienteIdAndDataBetween(Long aLong, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
+    Boolean existsByPacienteIdAndDataBetweenAndAtivoTrue(Long aLong, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
 }
+
